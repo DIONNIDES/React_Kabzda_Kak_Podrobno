@@ -5,7 +5,7 @@ type AccordionPropsType = {
 };
 
 
-function Accordion(props: AccordionPropsType) {
+export function SelFControlledAccordion(props: AccordionPropsType) {
 
     let [collapsed, setCollapsed] = useState(false);
 
@@ -51,5 +51,3 @@ function AccordionBody(props: AccordionBodyPropsType) {
         </ul>
     );
 }
-
-export default Accordion;

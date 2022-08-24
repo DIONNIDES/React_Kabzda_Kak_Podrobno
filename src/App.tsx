@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import './App.css';
 import Rating from './Components/Rating/Rating';
-import Accordion from './Components/Accordion/Accordion';
+import {Accordion} from './Components/Accordion/Accordion';
 import {OnOff} from './Components/OnOff/OnOff';
 import {SelfControlledOnOff} from './Components/OnOff/SelfControlledOnOff';
-import SelfControlledAccordion from './Components/Accordion/SelfControlledAccordion';
+import {SelFControlledAccordion} from './Components/Accordion/SelfControlledAccordion';
 import SelfControlledRating from './Components/Rating/SelfControlledRating';
 
 export type RatingValueType = {
