@@ -2,10 +2,6 @@ import React, {useState} from 'react';
 import './App.css';
 import Rating from './Components/Rating/Rating';
 import {Accordion} from './Components/Accordion/Accordion';
-import {OnOff} from './Components/OnOff/OnOff';
-import {SelfControlledOnOff} from './Components/OnOff/SelfControlledOnOff';
-import {SelFControlledAccordion} from './Components/Accordion/SelfControlledAccordion';
-import SelfControlledRating from './Components/Rating/SelfControlledRating';
 
 export type RatingValueType = {
     ratingValue: 0 | 1 | 2 | 3 | 4 | 5
@@ -21,10 +17,10 @@ function App(props: any) {
     return (
         <div>
             <AppTitle title={'This is App component'}/>
-            <Rating value={ratingValue} setRatingValue={setRatingValue}/>
-            <Accordion title={'Users'}  collapsed={collapsed} setCollapsed={()=>setCollapsed(!collapsed)}/>
+            <Rating value={ratingValue} evaluate={setRatingValue}/>
+            <Accordion title={'Users'} collapsed={collapsed} setCollapsed={() => setCollapsed(!collapsed)}/>
             {/*<OnOff onOffToggle={onOffToggle} setOnOffToggle={setOnOffToggle} />*/}
-            <SelfControlledOnOff onChange={setOnOffToggle} /> {onOffToggle.toString()}
+            {/*<SelfControlledOnOff onChange={setOnOffToggle} /> {onOffToggle.toString()}*/}
             {/*            <Accordion title={'Menu'} collapsed={false}/>
             <Accordion title={'Users'} collapsed={true}/>
             <SelfControlledAccordion title={'SelfControlledAccordion'} />

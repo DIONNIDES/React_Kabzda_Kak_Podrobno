@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styles from './OnOff.module.css';
+import styles from '../OnOff/OnOff.module.css';
 type SelfControlledOnOffPropsType = {
     onChange:(on:boolean)=>void
 }

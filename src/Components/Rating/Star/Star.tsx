@@ -1,17 +1,16 @@
-import React, {MouseEventHandler} from 'react';
-import {RatingValueType} from '../../../App';
+import React from 'react';
 
 
 type StarPropsType = {
     selected: boolean
-    setRatingValue:(value:number) => void
+    evaluate:(value:number) => void
     value: number
 };
 
 function Star(props: StarPropsType) {
 
     const setRatingValueHandler = () => {
-        props.setRatingValue(props.value);
+        props.evaluate(props.value);
     }
     return (
         <span onClick={setRatingValueHandler} >
