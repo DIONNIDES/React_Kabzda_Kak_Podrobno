@@ -28,3 +28,39 @@ export const TrackValueOfSelfControlledInputByButtonPress = ()=>{
 }
 
 export const ControlledInputWithFixedValue = ()=><input value={'in-camasutra.com'}/>
+
+
+export const ControlledInput = ()=>{
+    const [parentValue, setParentValue] = useState<string>('');
+    const onChange = (e:ChangeEvent<HTMLInputElement>)=>{
+        setParentValue(e.currentTarget.value)
+    }
+    return(
+        <input value={parentValue} onChange={onChange}/>
+    )
+}
+
+export const ControlledCheckbox = ()=>{
+    const [parentValue, setParentValue] = useState<boolean>(false);
+    const onChange = (e:ChangeEvent<HTMLInputElement>)=>{
+        setParentValue(e.currentTarget.checked)
+    }
+    return(
+        <input type='checkbox' onChange={onChange} checked={parentValue}/>
+    )
+}
+
+export const ControlledSelect = ()=>{
+    const [parentValue, setParentValue] = useState<string>('');
+    const onChange = (e:ChangeEvent<HTMLSelectElement>)=>{
+        setParentValue(e.currentTarget.value)
+    }
+    return(
+        <select value={parentValue} onChange={onChange}>
+            <option>none</option>
+            <option>Mykolaiv</option>
+            <option>Kiev</option>
+            <option>Vinnica</option>
+        </select>
+    )
+}
