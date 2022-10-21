@@ -7,7 +7,9 @@ type StarPropsType = {
     value: number
 };
 
-function Star(props: StarPropsType) {
+
+
+function StarSecret(props: StarPropsType) {
 
     const setRatingValueHandler = () => {
         props.evaluate(props.value);
@@ -22,5 +24,6 @@ function Star(props: StarPropsType) {
     );
 }
 
+const Star = React.memo(StarSecret)
 
 export default Star;

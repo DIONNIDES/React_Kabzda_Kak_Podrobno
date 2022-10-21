@@ -5,9 +5,9 @@ export type PropsOnOffType = {
     onOffToggle: boolean
     setOnOffToggle:(onOffToggle:boolean)=>void
 }
-export const OnOff = (props: PropsOnOffType) => {
 
 
+const OnOffSecret = (props: PropsOnOffType) => {
     return (
         <div>
            <span onClick={()=>props.setOnOffToggle(true)}>{props.onOffToggle ? <button  className={styles.active}>ON</button> : <button>ON</button>}</span>
@@ -16,3 +16,5 @@ export const OnOff = (props: PropsOnOffType) => {
         </div>
     );
 };
+
+export const OnOff = React.memo(OnOffSecret);

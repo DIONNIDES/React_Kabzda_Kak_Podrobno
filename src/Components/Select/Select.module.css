@@ -1,0 +1,30 @@
+.select{
+    border:2px solid black;
+    max-width: 80px;
+    text-align: center;
+}
+
+.select:hover{
+    cursor: pointer;
+}
+
+.items{
+    border:1px solid black;
+}
+
+/*.active{
+    background: #66bf3c;
+}*/
+
+.item{
+    border:1px solid black;
+    min-height: 20px;
+    max-width: 80px;
+    text-align: center;
+    padding: 5px;
+}
+
+.item:hover{
+    cursor: pointer;
+    background: #1ea7fd;
+}

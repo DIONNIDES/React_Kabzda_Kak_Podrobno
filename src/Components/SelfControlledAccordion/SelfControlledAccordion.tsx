@@ -1,25 +1,28 @@
-import React, {useState} from 'react';
+import React, {useReducer, useState} from 'react';
+import {accordionReducer, TOGGLE_COLLAPSED} from './accordionReducer';
 
 type AccordionPropsType = {
     title: string;
 };
 
+export const SelFControlledAccordion = React.memo(SelFControlledAccordionSecret);
 
-export function SelFControlledAccordion(props: AccordionPropsType) {
+export function SelFControlledAccordionSecret(props: AccordionPropsType) {
 
-    let [collapsed, setCollapsed] = useState(false);
+    let [state, dispatch] = useReducer(accordionReducer, {collapsed:false});
 
     const CollapsedToggle = () => {
-        setCollapsed(!collapsed);
-    }
+        dispatch({type:TOGGLE_COLLAPSED});
+    };
 
     return (
         <div>
             <AccordionTitle collapsed={false} collapsedToggle={CollapsedToggle} title={props.title} />
-            {collapsed && <AccordionBody collapsed={collapsed} />}
+            {state.collapsed && <AccordionBody collapsed={state.collapsed} />}
         </div>
     );
 };
+
 
 type AccordionTitlePropsType = {
     title: string;
@@ -27,7 +30,9 @@ type AccordionTitlePropsType = {
     collapsed:boolean
 }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
+export const AccordionTitle = React.memo(AccordionTitleSecret)
+
+function AccordionTitleSecret(props: AccordionTitlePropsType) {
 
     const onCollapsedToggleHandler = () => {
         props.collapsedToggle();
@@ -41,8 +46,8 @@ function AccordionTitle(props: AccordionTitlePropsType) {
 export type AccordionBodyPropsType = {
     collapsed:boolean
 };
-
-function AccordionBody(props: AccordionBodyPropsType) {
+export const AccordionBody = React.memo(AccordionBodySecret)
+function AccordionBodySecret(props: AccordionBodyPropsType) {
     return (
         <ul>
             <li>1</li>

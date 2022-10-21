@@ -1,18 +1,23 @@
 import React from 'react';
+import {ItemType} from '../../App';
+
 
 type AccordionPropsType = {
     title: string;
     setCollapsed: ()=>void;
     collapsed:boolean
+    items: Array<ItemType>
+    onClick:(title:string)=>void
 };
 
+export const Accordion = React.memo(AccordionSecret);
 
-export function Accordion(props: AccordionPropsType) {
+function AccordionSecret(props: AccordionPropsType) {
     console.log('Accordion rendering');
     return (
         <div>
             <AccordionTitle title={props.title}  setCollapsed={props.setCollapsed} />
-            {!props.collapsed && <AccordionBody collapsed={props.collapsed} />}
+            {!props.collapsed && <AccordionBody items={props.items} collapsed={props.collapsed} onClick={props.onClick} />}
         </div>
     );
 };
@@ -35,15 +40,15 @@ function AccordionTitle(props: AccordionTitlePropsType) {
 
 export type AccordionBodyPropsType = {
     collapsed: boolean;
+    items:ItemType[]
+    onClick:(title:string)=>void
 };
 
 function AccordionBody(props: AccordionBodyPropsType) {
     console.log('AccordionBody rendering');
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {props.items.map(item=><li onClick={()=>props.onClick(item.title)}>{item.title}</li>)}
         </ul>
     );
 }

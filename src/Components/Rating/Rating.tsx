@@ -6,7 +6,9 @@ type RatingPropsType = {
     evaluate:(value:number)=>void
 }
 
-function Rating(props: RatingPropsType) {
+
+
+function RatingSecret(props: RatingPropsType) {
     console.log('Rating rendering');
     return (
         <div>
@@ -19,4 +21,5 @@ function Rating(props: RatingPropsType) {
     );
 }
 
+const Rating = React.memo(RatingSecret);
 export default Rating;
